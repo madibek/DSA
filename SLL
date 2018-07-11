@@ -1,0 +1,139 @@
+1. insertion
+  add(value)
+  pre: value is the value to add to the list  
+  post: value has been added at the tail of the list
+  
+  n = node(value)
+  if head == null
+    head = n;
+    tail = n;
+  else
+    tail.Next = n;
+    tail = n;
+    
+2. searching
+   contains(head, value)
+   pre: head is head node on the linked list
+   post: value is either found return true, otherwise false
+   
+   n = head;
+   while (n != null and n.Value != value)
+      n = n.Next;
+      
+   if (n == null)
+    return false;
+   else
+    return true;
+    
+3. deletion
+   few case we need account for:
+   1) list is empty; or
+   2) the node we are removing is the only node in the list; or
+   3) the node we are removing is head node; or
+   4) the node we are removing is tail node; or
+   5) the node we are removing is in between the head and tail nodes; or
+   6) the node we are removing is not found in the list
+   
+   remove(head, value)
+   pre: head is the head node of list,
+        value is the value to remove from list
+   post: value is removed from list return true, otherwise false
+   
+   if (head == null)
+      // case 1
+      return false
+      
+   if (head.Value == value)
+      if (head == tail)
+          // case 2
+          head = null
+          tail = null
+      else
+          // case 3
+          head = head.Next;
+      
+      return true
+      
+   n = head;
+   while (n.Next != null and n.Next.Value != value)       /// +-----+  +-----+  +-----+  +-----+  +-----+
+         n = n.Next                                       /// | 10 *-->| 20 *-->| 30 *-->| 40 *-->| 50 *--> null
+                                                          /// +-----+  +-----+  +-----+  +-----+  +-----+
+   if (n.Next != null)                                    ///  |                                    |
+      if (n.Next == tail)                                 /// head                                 tail
+          // case 4                                                       value = 30;
+          tail = n;
+      else    
+      // case 5
+      n.Next = n.Next.Next;
+      
+      return true;
+    
+   // case 6 value not found
+   return false
+   
+4. traversing
+   traverse(head)
+   pre: head is the head node of the list
+   post:the items of the list have been traversed
+   
+   n = head;
+   while (n != null)
+      yield n.value;
+      n = n.Next
+      
+5. reverse traversing
+   reverseTraverse(head, tail)
+   pre: head and tail belong to the same linked list
+   post: the items of the list have been traversed in reverse order
+   
+   if (tail != null)
+      current = tail
+      while(current != head)
+            prev = head;
+            while(prev.Next != current)
+                  prev = prev.Next
+            yield curr.Value
+            current = prev;
+            
+      yield current.Value  
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+   
