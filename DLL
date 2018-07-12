@@ -1,0 +1,118 @@
+1. insertion
+
+  add(value)
+  pre: value is the value to add to the list
+  post: value had been added at the tail of the list
+  
+  n = node(value)
+  if (head == null)
+    head = n
+    tail = n
+  else
+    n.Prev = tail
+    tail.Next = n
+    tail = n
+  
+2. searching
+  
+  contains(value)
+  pre: value is the value searching for
+  post: value is found in the list true, otherwise false
+   
+  n = head
+  while(n != null and n.Value != value)
+    n = n.Next
+    
+  if (n == null)
+    return false
+  else  
+    return true
+    
+3. deletion
+  
+  remove(value)
+  pre: value is the value to delete
+  post: value is deleted from list return true, otherwise false
+  
+  if (head == null)
+    // case 1
+    return false
+  
+  if (head.Value == value)
+     if(head == tail)
+        // case 2
+        head = null
+        tail = null
+     else
+        // case 3
+        head = head.Next
+        head.Prev = null
+        
+     return true
+       
+  n = head.Next
+  while (n != null and n.Value != value)
+    n = n.Next
+    
+  if (n == tail) 
+    // case 4
+    tail = tail.Prev
+    tail.Next = null
+    return true
+  else if (n.Next != null)
+    // case 5
+    n.Prev.Next = n.Next
+    n.Next.Prev = n.Prev
+    return true
+    
+ // case 6   
+ return false
+ 
+4. traversing
+  traverse(head)
+  pre: head is the head of list
+  post: items of the list have been traversed
+  
+  n = head
+  while(n != null)
+    yeild n.value
+    n = n.Next
+    
+5. reverse traversing
+  reverseTraverse(tail)
+  pre: tail is the tail of the list
+  post: items of the list have been traversed in reverse order
+  
+  n = tail
+  while(n != null)
+    yeild n.Value
+    n = n.Prev
+    
+        
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
