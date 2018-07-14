@@ -1,0 +1,123 @@
+1. insertion
+  add(value)
+  pre: value is the value to add
+  post: value had been placed in the correct location in the tree
+  
+  if (root == null) {
+      root = node(value) 
+  } else {
+      addNode(root, value)
+  }
+  
+  ==========
+  addNode(root, value)
+  pre: root is node to start from
+  post: value has been placed in the correct location in the tree
+  
+  if (value < root.value) 
+      if (root.left == null)
+          root.left = node(value)
+      else
+          addNode(root.left, value)
+  else
+      if (root.right == null)
+          root.right = node(value)
+      else
+          addNode(root.right, value)
+          
+ 2. searching
+    contains(value)
+    pre: value is searching for, root is the root of the tree
+    post: if value is located in the tree returns true, otherwise false
+    
+    if (root == null)
+        return false
+    
+    if (root.value == value)
+        return true
+        
+    if (value < root.value)
+        return contains(root.left, value)
+    else 
+        return contains(root.right, value)
+        
+ 3. traversing
+    there are variuos strategies which can be imployed to traverse the items in the tree
+    1 preorder
+    2 postorder
+    3 inorder
+    
+    preoder(root)
+    pre: root is the root of the BST
+    post: node of the BST have been visited in preorder
+    
+    if (root == null)
+        return
+        
+    yield root.value
+    preorder(root.left)
+    preorder(root.right)
+    
+    =================
+    
+    postorder(root)
+    pre: root - is the root node of the BST
+    post: the nodes of the BST have been visited in postorder
+    
+    if (root == null)
+        return
+        
+     postorder(root.left)
+     postorder(root.right)
+     yield root.value
+     
+     =================
+     
+     inorder(root)
+     pre: root is the root node of the BST
+     post: the nodes of the BST have been visited in inorder
+     
+     if (root == null)
+        return
+        
+     inorder(root.left)
+     yield root.value
+     inorder(root.right)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
