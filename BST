@@ -84,7 +84,99 @@
      yield root.value
      inorder(root.right)
     
-    
+4. removing
+   remove(value)
+   pre: value is the value of the node to remove
+   post: node with value is removed if found in which case yields true, otherwise returns false
+ 
+   node = findNode(root, value)
+   if (node == null)
+      return false //value not found in the BST
+      
+   if (node == root)
+      root = null  // we are removing the only node in the BST
+      return true
+   
+   parent = findParent(root, value)
+   
+   if (node.left == null && node.right == null)
+      if (value < parent.value)
+          parent.left = null
+      else
+          parent.right = null
+   else if (node.left != null && node.right == null)
+      if (value < parent.value)
+          parent.left = node.left
+      else 
+          parent.right = node.left
+   else if (node.left == null && node.right != null)
+      if (value < parent.value)
+          parent.left = node.right    
+      else
+          parent.right = node.right
+   else
+       // this is most complicated part of this method
+       largestLeftNode = node.left
+       while(largestLeftNode.right != null)
+          // find the largest value if left subtree of node (node to remove)
+          largestLeftNode = largestLeftNode.right
+       // set the parenst's right pointer of the largestValue to null   
+       largeRight = findParent(node, largestLeftNode.value);
+       largeRight.right = null;
+       node.value = largestLeftNode.value
+       
+   return true;
+   
+   
+   ========================
+   findNode(current, value)
+   pre: value is the value of the node we want to find,
+        current is node to start
+   post: return a reference to the node of value if found, otherwise null
+   
+   if (current == null)
+      return null
+      
+   if (value == current.value)
+      return current
+   
+   if (value < current.value)
+      return findNode(current.left, value)
+   else
+      return findNode(current.right, value)
+      
+      
+   =========================
+   findParent(root, value)
+   pre: root is node to start
+        value is the value searching for
+   post: returns a referene to the parent of value if foudn; otherwise null
+   
+   if (root.value == value)
+      return null
+   
+   if (value < root.value)
+      
+      if (root.left == null)
+          return null
+      
+      if (value == root.left.value)
+          return root
+      else
+          return findParent(root.left, value)
+     
+   else
+      
+      if (root.right == null)
+          return null
+          
+      if (value == root.right.value)
+          return root
+      else
+          return findParent(root.right,value)
+   
+   
+          
     
     
     
