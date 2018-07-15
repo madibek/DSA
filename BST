@@ -116,13 +116,13 @@
           parent.right = node.right
    else
        // this is most complicated part of this method
-       largestLeftNode = node.left
-       while(largestLeftNode.right != null)
+       largestLeftNode = node.right
+       while(largestLeftNode.left != null)
           // find the largest value if left subtree of node (node to remove)
-          largestLeftNode = largestLeftNode.right
+          largestLeftNode = largestLeftNode.left
        // set the parenst's right pointer of the largestValue to null   
-       largeRight = findParent(node, largestLeftNode.value);
-       largeRight.right = null;
+       largerLeftParent = findParent(node, largestLeftNode.value);
+       largetLeftParent.left = null;
        node.value = largestLeftNode.value
        
    return true;
