@@ -116,6 +116,7 @@
           parent.right = node.right
    else
        // this is most complicated part of this method
+       ==            second approach
        largestLeftNode = node.right
        while(largestLeftNode.left != null)
           // find the largest value if left subtree of node (node to remove)
@@ -124,6 +125,19 @@
        largerLeftParent = findParent(node, largestLeftNode.value);
        largetLeftParent.left = null;
        node.value = largestLeftNode.value
+       
+       ====================================================================
+       
+       ==            second approach
+       ==     // find min node in right sub tree of nodeToRemove
+       ==     Node minNode = findMin(nodeToRemove.right);
+       ==
+       ==     Node minNodeParent = findParent(nodeToRemove, minNode.value);
+       ==     // set minNode to null
+       ==     minNodeParent.left = null;
+       ==     
+       ==     // replace nodeToRemove value with minNode value
+       ==     nodeToRemove.value = minNode.value;
        
    return true;
    
