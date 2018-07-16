@@ -1,0 +1,33 @@
+1. UNION
+  union(set1, set2)
+  pre:
+  post:
+  
+  unionSet = new Set
+  foreach item in set1
+    unionSet.add(item)
+    
+  return unionSet
+  
+2. INTERSECTION
+  intersection(set1, set2)
+  smallSet
+  largeSet
+  interSet = new Set
+  if (set1.size < set2.size)
+    smallSet = set1
+    largeSet = set2
+  else
+    smallSet = set2
+    largeSet = set1
+    
+  foreach item in smallSet
+    if (largeSet.contains(item))
+      interSet.add(item)
+      
+      
+3. COMPLEMENT
+  complement(set1, set2)
+    union = set1.union(set2)
+    complement = set1.removeAll(union)
+    return complement
