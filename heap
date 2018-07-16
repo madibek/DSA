@@ -1,4 +1,5 @@
-1. add(value)
+1. inserting 
+  add(value)
   pre: value is the value to add to the heap
        count is the number of item in the heap
        heap is the array to store items of the heap
@@ -19,4 +20,80 @@
     swap(heap, i, (i -1)/2)
     i = (i-1)/2
     
+2. searching
+  contains(value)
+  pre: value is the value searching for
+       count is the number of items in the heap
+       heap is the array to store items of the heap
+  post: if value stored in the heap returns true, otherwise false
   
+  i = 0
+  while(i < count && heap[i] != value)
+    i++
+    
+  if (i < count)
+    return false
+  else
+    return true
+
+3. deleting
+  remove(value)
+  pre:
+  post:
+  
+  index = findIndex(value)
+  if (index < 0)
+    return false
+   
+  left = (2*index) + 1
+  right = (2*index) + 2
+  count--
+  heap[index]=heap[count]
+  
+  while(left < count and and heap[index] < heap[left] or heap[index] < heap[right])
+    if (heap[right] < heap[left])
+      swap(heap, right, index)
+      index = right
+    else
+      swap(heap, left, index)
+      index = left
+    
+    left = (2*index) + 1
+    right = (2*index) + 2
+    
+  
+  
+  
+  
+  
+  =============
+  findIndex(value)
+  pre:
+  post:
+  
+  i = o
+  while(i < count and heap[i] != value)
+     i++
+     
+  if (i < count)
+    return i
+  
+  return -1
+
+
+4. traversing
+  traverse()
+  pre: count is the number of item in the heap
+       heap is the array to store heap items
+  post:
+  
+  i = 0;
+  while(i < count)
+    yield heap[i]
+    i++
+    
+  
+
+
+
+
