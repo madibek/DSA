@@ -1,0 +1,22 @@
+1. add(value)
+  pre: value is the value to add to the heap
+       count is the number of item in the heap
+       heap is the array to store items of the heap
+  post: value had been added to the heap
+  
+  heap[count]=value
+  count++
+  minHeapify()
+  
+  ========
+  minHeapify()
+  pre: count is the number of items in the heap
+       heap is the array to store items of the heap
+  post: 
+  
+  i = count -1
+  while(i > 0 && heap[i] < heap[(i-1)/2])
+    swap(heap, i, (i -1)/2)
+    i = (i-1)/2
+    
+  
