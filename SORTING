@@ -17,6 +17,10 @@
   post: list has been sorted in ascending order
   comlexity: O(n*log n)
   
+  if (list.count < 2) 
+    // list with only one item is alreadt sorted
+    return list
+  
   left = list.count / 2
   right = list.count - left
   
