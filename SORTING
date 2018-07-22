@@ -151,7 +151,7 @@
       if (list[min] > list[j])
         min = j
         
-    swap(list, i, j)
+    swap(list, i, min)
     
    
   
