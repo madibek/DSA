@@ -4,9 +4,9 @@
   post: list has been sorted ascending order
   complexity: O(n^2)
   
-  for i = 0 to list.count - 1
-    for j = 0 to list.count - i -1
-      if (list[i] < list[j]
+  for i = 0 to list.count
+    for j = i + 1 to list.count
+      if (list[i] > list[j]
         swap(list, i, j)
   
   return list
