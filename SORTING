@@ -17,30 +17,49 @@
   post: list has been sorted in ascending order
   comlexity: O(n*log n)
   
-  middle = list.count / 2
+  left = list.count / 2
+  right = list.count - left
   
-  for i = 0 to middle
+  for i = 0 to left
     leftList[i] = list[i]
     
-  for i = 0 to list.count - middle
-    rightList[i] = list[middle + i]
+  for i = 0 to right
+    rightList[i] = list[left + i]
     
   leftList = mergeSort(leftList)
   rightList = mergeSort(rightList)
   
-  return mergeOrdered(leftList, rightList)
+  return merge(leftList, rightList, list)
   
   ====================
-  mergeOrdered(list1, list2)
-  pre: list1 and list2 are not null
-  post: return list merged with list1 and list2, which ordered in ascending order
+  merge(leftList, rightList, result)
+  pre: leftList and rightList are not null
+  post: return result merged with leftList and rightList, which ordered in ascending order
   
-  newlist
-  for i = 0 to list1.count
-    newList[i] = list1[i]
+  count = 0
+  left = 0
+  right = 0
   
-  for i = 0 to list2.count
-    newList[list1.count + 1] = list2[i]
+  while(left < leftList.count and right < rightList.count
+    if (leftList[left] < rightList[right]
+        result[count] = leftList[left]
+        left = left + 1
+    else
+        result[count] = rightList[right]
+        right = right + 1
+        
+    count = count + 1
+    
+    
+  while (left < leftList.count)
+    result[count] = leftList[left]
+    left = left + 1
+    count = count + 1
+    
+  while (right < rightList.count)
+    result[count] = rightList[right]
+    right = right + 1
+    count = count + 1
     
   return newList
   
