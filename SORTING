@@ -162,7 +162,7 @@
   return arr
   
   
-5. Selection sort
+5. Selection sort 
   selectioinSort(list)
   pre: list != null
   post: list has been sorted in ascending order
@@ -177,6 +177,37 @@
         
     swap(list, i, min)
     
+    
+6. Shell sort (this is like insertioin sort)
+  shellSort(arr)
+  pre: arr is array and not null
+  post: arr has been sorted in ascending order
+  
+  if (arr.count < 2)
+    // arr has only one item and is sorted
+    return arr
+    
+  gap = arr.count / 2
+  while(gap > 0)
+    
+    start = gap
+    while(start < arr.count)
+      value = arr[start]
+      index = start - gap
+        
+         while(index >= 0 and value < arr[index])
+            arr[index + gap] = arr[index]
+            index = index - gap
+         
+       arr[index + gap] = value
+       start = stat + 1
+       
+    gap = gap / 2
+    
+    
+    return arr
+         
+     
    
   
   
