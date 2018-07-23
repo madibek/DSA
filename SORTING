@@ -137,6 +137,30 @@
     
   return list
   
+  ==============================
+  insertionSort2(arr) 
+  pre: arr is not null
+  post: arr has been sorted in asceding order
+  
+  if (arr.count < 2)
+    // arr has only one item and is sorted
+    return arr
+    
+  start = 1
+  while (stat < arr.count)
+    value = arr[start]
+    index = start - 1
+    
+    while (index >= 0 and value < arr[index])
+      arr[index + 1] = arr[index]
+      index = index - 1
+      
+    arr[index + 1] = value
+    start = start + 1
+    
+   
+  return arr
+  
   
 5. Selection sort
   selectioinSort(list)
@@ -152,6 +176,11 @@
         min = j
         
     swap(list, i, min)
+    
+   
+  
+  
+  
     
    
   
