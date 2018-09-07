@@ -1,0 +1,28 @@
+JumpSearch(arr, k)
+
+Pre: Input ordered arr list, its lenght n and a search key k
+Post: Return the position of k in arr, or nothing if k is not in arr
+
+
+n = arr.length
+prev = 0
+step = sqrt(n)
+
+while (arr[min(step, n) - 1] < k)
+  prev = step
+  step = step + sqrt(n)
+  
+  if (prev >= n)
+    return nothing
+    
+
+while (arr[prev] < k)
+  prev = prev + 1
+  if (prev == min(step, n)
+    return noting
+    
+
+if (arr[prev] == k)
+  return prev
+else  
+  return nothing
